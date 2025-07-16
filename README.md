@@ -4,7 +4,8 @@ Based on PyWavelets (https://pywavelets.readthedocs.io) and Pistonly's MODWT imp
 
 ## Requirements
 PyWavelets
-
+SciPy
 ```
 pip install pywavelets
+pip install SciPy
 ```

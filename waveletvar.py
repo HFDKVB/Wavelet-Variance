@@ -1,6 +1,8 @@
 import pywt
 import numpy as np
+from scipy.stats import norm
 from modwt import modwt
+
 
 def wavelet_variance(x, filters, level):
     wavelet = pywt.Wavelet(filters)
