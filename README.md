@@ -22,7 +22,7 @@ fig, ax = plt.subplots(2, 1, sharex=True)
 ax[0].plot(btc_df["close"],  color='darkorange')
 ax[1].plot(sol_df["close"], color='magenta')
 
-plt.tight_layout()  # Optional: improves spacing between plots
+plt.tight_layout()
 plt.show()
 
 ```
