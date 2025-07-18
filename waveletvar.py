@@ -6,7 +6,7 @@ from modwt import modwt
 
 def wavelet_variance(x, filters, level):
     wavelet = pywt.Wavelet(filters)
-    filter_length = wavelet.dec_len
+    filter_length = wavelet.rec_len
     w = modwt(x, filters, level)
     scale_length = (2**level-1)*(filter_length-1) + 1
     n_interior_coeffs = len(x) - scale_length + 1
@@ -17,7 +17,7 @@ def wavelet_variance(x, filters, level):
 def wavelet_variance_CI(x, filters , level, alpha):
     var_estim = wavelet_variance(x, filters, level)
     wavelet = pywt.Wavelet(filters)
-    filter_length = wavelet.dec_len
+    filter_length = wavelet.rec_len
     w = modwt(x, filters, level)
     N = len(x)
     scale_length = (2**level-1)*(filter_length-1) + 1
@@ -44,7 +44,7 @@ def wavelet_variance_CI(x, filters , level, alpha):
 
 def wavelet_cross_covariance(x, y, filters, level, lag):
     wavelet = pywt.Wavelet(filters)
-    filter_length = wavelet.dec_len
+    filter_length = wavelet.rec_len
     
 
     w_x = modwt(x, filters, level)
@@ -83,7 +83,7 @@ def wavelet_correlation(x,y, filters, level, lag):
 
 def wavelet_correlation_CI(x,y, filters, level, lag, alpha):
     wavelet = pywt.Wavelet(filters)
-    filter_length = wavelet.dec_len
+    filter_length = wavelet.rec_len
     Lj = (2**level - 1) * (filter_length - 1) + 1
     Nj_tilde = Nj_tilde = len(x) - Lj + 1 - lag
     correlation = wavelet_correlation(x,y, filters, level, lag)
