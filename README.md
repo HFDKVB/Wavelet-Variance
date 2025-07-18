@@ -15,7 +15,7 @@ pip install pywavelets
 pip install SciPy
 ```
 ## Example
-
+Wavelet correlation between BTC and SOL. Last figure shows correlations at different lags and different levels
 
 ```python
 fig, ax = plt.subplots(2, 1, sharex=True)
