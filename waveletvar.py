@@ -10,7 +10,7 @@ def wavelet_variance(x, filters, level):
     w = modwt(x, filters, level)
     scale_length = (2**level-1)*(filter_length-1) + 1
     n_interior_coeffs = len(x) - scale_length + 1
-    interior_coeffs = w[level][scale_length-1:]
+    interior_coeffs = w[level-1][scale_length-1:]
     var = np.sum(interior_coeffs ** 2)/n_interior_coeffs
     return var
 
@@ -54,8 +54,8 @@ def wavelet_cross_covariance(x, y, filters, level, lag):
     Lj = (2**level - 1) * (filter_length - 1) + 1
     Nj_tilde = len(x) - Lj + 1 
 
-    wj_x = w_x[level]
-    wj_y = w_y[level]
+    wj_x = w_x[level-1]
+    wj_y = w_y[level-1]
     
     if 0 <= lag <= Nj_tilde - 1:
         t_start = Lj - 1
